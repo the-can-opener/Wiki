@@ -8,7 +8,8 @@
 
 Open-source vehicle intelligence platform, ESP32-based BLE hardware, a TypeScript signal library, and a polished mobile app for exploring, automating, and extending your car.
 
-[Hardware](#hardware) · [can-opener-js](#can-opener-js) · [Nexus App](#nexus-app) · [BLE Interface](#ble-interface) · [Roadmap](#roadmap)
+[Hardware](#hardware) · [can-opener-js](#can-opener-js) · [Nexus App](#nexus-app) · [BLE Interface](#ble-interface) · [Roadmap](#roadmap) · 
+ [Discord](#discord)
 
 </div>
 
@@ -16,7 +17,7 @@ Open-source vehicle intelligence platform, ESP32-based BLE hardware, a TypeScrip
 
 ## What Is CAN Opener?
 
-CAN Opener is an end-to-end open-source ecosystem for connected vehicle experiences. It bridges the physical CAN bus inside your car to a clean, developer-friendly software stack, without forcing you to speak raw hex.
+CAN Opener is an end-to-end open-source ecosystem for connected vehicle experiences. It bridges the physical CAN bus inside your car to a clean, developer-friendly software stack, without forcing you to speak raw hex. Feel free to check out our official CAN-Opener [Wiki](https://github.com/the-can-opener/Wiki/wiki) page.
 
 The system has three main layers:
 
@@ -226,3 +227,6 @@ The transport layer is intentionally minimal, it connects, sends raw CAN request
 ## Long-Term Vision
 
 Create an open automotive software ecosystem where any vehicle can become programmable, developers can build and share apps safely, consumers retain ownership and control of their data, fleet operators gain powerful automation tools, and vehicle intelligence becomes hardware-agnostic.
+
+## Discord
+Feel free to join our community discord server: https://discord.gg/5SzuSSYqmg
