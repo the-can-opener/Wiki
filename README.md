@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="Assets/App-no-background.png" alt="CAN Opener Nexus" width="180" />
+<img src="Assets/icon.png" alt="CAN Opener Nexus" width="180" />
 
 # CAN Opener
 
@@ -20,11 +20,11 @@ CAN Opener is an end-to-end open-source ecosystem for connected vehicle experien
 
 The system has three main layers:
 
-| Layer | What It Does |
-|---|---|
-| **Firmware** | ESP32 adapter that sits on the OBD-II port. Handles BLE pairing, CAN 500 kbps bus I/O, OBD-II PID responses, BCM requests, ISO-TP multi-frame reads, and monitor streaming. |
+| Layer             | What It Does                                                                                                                                                                         |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Firmware**      | ESP32 adapter that sits on the OBD-II port. Handles BLE pairing, CAN 500 kbps bus I/O, OBD-II PID responses, BCM requests, ISO-TP multi-frame reads, and monitor streaming.          |
 | **can-opener-js** | TypeScript library that gives apps a virtual vehicle object. Abstracts DBC files, CAN IDs, byte layout, and signal packing behind named state like `ENGINE_RPM` and `VEHICLE_SPEED`. |
-| **Nexus** | React Native / Expo mobile app. Polished dashboard with live signal state, body controls, mock vehicles, and dev tooling — all powered by can-opener-js. |
+| **Nexus**         | React Native / Expo mobile app. Polished dashboard with live signal state, body controls, mock vehicles, and dev tooling — all powered by can-opener-js.                             |
 
 ---
 
@@ -96,11 +96,11 @@ await car.action("HORN");
 
 **Standard capability keywords:**
 
-| Category | Keywords |
-|---|---|
-| Actions | `UNLOCK` `LOCK` `LEFT_SIGNAL` `RIGHT_SIGNAL` `OPEN_TRUNK` `CLOSE_TRUNK` `HORN` |
-| Signals | `SPEED` `RPM` `LEFT_SIGNAL` `RIGHT_SIGNAL` `BRAKE_LIGHTS` `FUEL_LEVEL` `TPS` `STEERING_ANGLE` `LOW_BEAMS` `HIGH_BEAMS` |
-| PIDs | `RPM` `SPEED` `ECT` `IAT` `MAP` `MAF` `TPS` `FUEL_LEVEL` `VIN` `MIL_STATUS` `ODOMETER` + more |
+| Category | Keywords                                                                                                               |
+| -------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Actions  | `UNLOCK` `LOCK` `LEFT_SIGNAL` `RIGHT_SIGNAL` `OPEN_TRUNK` `CLOSE_TRUNK` `HORN`                                         |
+| Signals  | `SPEED` `RPM` `LEFT_SIGNAL` `RIGHT_SIGNAL` `BRAKE_LIGHTS` `FUEL_LEVEL` `TPS` `STEERING_ANGLE` `LOW_BEAMS` `HIGH_BEAMS` |
+| PIDs     | `RPM` `SPEED` `ECT` `IAT` `MAP` `MAF` `TPS` `FUEL_LEVEL` `VIN` `MIL_STATUS` `ODOMETER` + more                          |
 
 ```sh
 npm install can-opener-js
@@ -155,12 +155,13 @@ The transport layer is intentionally minimal — it connects, sends raw CAN requ
 ## Roadmap
 
 <div align="center">
-  <img src="Docs-Reference/can_opener_roadmap.pdf" alt="CAN Opener Roadmap" width="100%" />
+  <img src="Assets/can_opener_github_roadmap.png" alt="CAN Opener Roadmap" width="100%" />
 </div>
 
 ### Phase 1 — Base Platform
 
 **Firmware**
+
 - [x] ESP32 + MCP2515 CAN adapter firmware
 - [x] FreeRTOS task orchestration (CAN, BLE, logging, watchdogs)
 - [x] OBD-II PID request/response (SPEED, VIN, etc.)
@@ -177,13 +178,14 @@ The transport layer is intentionally minimal — it connects, sends raw CAN requ
 - [ ] Read-only diagnostic firmware mode (regulatory)
 
 **can-opener-js**
+
 - [x] Virtual vehicle manager (multi-vehicle, no globals)
 - [x] DBC file parsing and signal decoding
 - [x] YAML vehicle profile system (endpoints, queries, actions, signals)
 - [x] Named signal subscribe / unsubscribe
 - [x] PID query and diagnostic read API
 - [x] Multi-step action flows with response verification
-- [x] VAL_ enum-state subscriptions
+- [x] VAL\_ enum-state subscriptions
 - [x] valtio/vanilla vehicle state with reactive subscriptions
 - [x] MockTransport for local testing
 - [ ] Real BLE transport (Web Bluetooth / Node BLE)
@@ -191,6 +193,7 @@ The transport layer is intentionally minimal — it connects, sends raw CAN requ
 - [ ] ISO-TP assembly/disassembly (currently firmware-side)
 
 **Nexus App**
+
 - [x] Vehicle dashboard (speed, fuel/battery, lock, trunk, lighting)
 - [x] Mock vehicle support for local development
 - [x] Body controls dev panel (locks, doors, lights, signals)
@@ -202,12 +205,14 @@ The transport layer is intentionally minimal — it connects, sends raw CAN requ
 - [ ] Diagnostics — read and clear DTCs, AI-assisted fault code interpretation
 
 **Cloud & Ecosystem**
+
 - [ ] DBC file and widget repository (community submissions, safety validation)
 - [ ] OAuth2 / device ownership and developer accounts
 - [ ] can-opener-py Python debugging toolkit (SocketCAN, BLE debug, replay)
 - [ ] Kickstarter launch
 
 **Hardware & Compliance**
+
 - [ ] ESD protection, automotive-grade transceivers, reverse polarity/fuse
 - [ ] FCC Part 15, IC, and CE/RED certification
 - [ ] Production enclosure design
@@ -222,7 +227,6 @@ The transport layer is intentionally minimal — it connects, sends raw CAN requ
 ### Optional
 
 - [ ] Project Renigne — reverse engineering tool (CAN frequency analysis, signal detection, AI correlation, DBC generation)
-
 
 ## Long-Term Vision
 
