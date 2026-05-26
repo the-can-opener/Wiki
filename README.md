@@ -36,7 +36,7 @@ The system has three main layers:
   <img src="Assets/Hardware.png" alt="CAN Opener Hardware" width="500" />
 </div>
 
-The base adapter is paired with an **MCP2515** CAN controller over SPI. It plugs directly into the OBD-II port and communicates with the Nexus app over BLE.
+The ESP32 based OBD2 adapter
 
 **Hardware highlights:**
 
@@ -94,11 +94,11 @@ await car.action("HORN"),
 
 **Standard capability keywords:**
 
-| Category | Keywords                                                                                                               |
-| -------- | ---------------------------------------------------------------------------------------------------------------------- |
-| Actions  | `UNLOCK` `LOCK` `LEFT_SIGNAL` `RIGHT_SIGNAL` `OPEN_TRUNK` `CLOSE_TRUNK` `HORN`                                         |
-| Signals  | `SPEED` `RPM` `LEFT_SIGNAL` `RIGHT_SIGNAL` `BRAKE_LIGHTS` `FUEL_LEVEL` `TPS` `STEERING_ANGLE` `LOW_BEAMS` `HIGH_BEAMS` |
-| PIDs     | `RPM` `SPEED` `ECT` `IAT` `MAP` `MAF` `TPS` `FUEL_LEVEL` `VIN` `MIL_STATUS` `ODOMETER` + more                          |
+| Category | Keywords                                                                                                                                             |
+| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Actions  | `UNLOCK` `LOCK` `LEFT_SIGNAL` `RIGHT_SIGNAL` `OPEN_TRUNK` `CLOSE_TRUNK` `HORN` + more                                                                |
+| Signals  | `SPEED` `RPM` `LEFT_SIGNAL` `RIGHT_SIGNAL` `BRAKE_LIGHTS` `FUEL_LEVEL` `TPS` `STEERING_ANGLE` `LOW_BEAMS` `HIGH_BEAMS` `FRONT_LEFT_DOOR_OPEN` + more |
+| Queries  | `RPM` `SPEED` `ECT` `IAT` `MAP` `MAF` `TPS` `FUEL_LEVEL` `VIN` `MIL_STATUS` `ODOMETER` + more                                                        |
 
 ```sh
 npm install can-opener-js
