@@ -169,7 +169,7 @@ The transport layer is intentionally minimal — it connects, sends raw CAN requ
 - [x] CAN monitor streaming (passive signal subscriptions)
 - [x] Mutex-guarded concurrent CAN bus access
 - [x] Loopback diagnostic mode
-- [ ] BLE bonding + encryption on hardware
+- [x] BLE bonding + encryption on hardware
 - [ ] Signed OTA firmware updates
 - [ ] Safe-mode bootloader recovery
 - [ ] Rate limiting and watchdog timers
@@ -187,9 +187,9 @@ The transport layer is intentionally minimal — it connects, sends raw CAN requ
 - [x] VAL\_ enum-state subscriptions
 - [x] valtio/vanilla vehicle state with reactive subscriptions
 - [x] MockTransport for local testing
-- [ ] Real BLE transport (Web Bluetooth / Node BLE)
+- [x] Real BLE transport (Web Bluetooth / Node BLE)
 - [ ] React bindings entry point
-- [ ] ISO-TP assembly/disassembly (currently firmware-side)
+- [x] ISO-TP assembly/disassembly (currently firmware-side)
 
 **Nexus App**
 
@@ -197,7 +197,7 @@ The transport layer is intentionally minimal — it connects, sends raw CAN requ
 - [x] Mock vehicle support for local development
 - [x] Body controls dev panel (locks, doors, lights, signals)
 - [x] Vehicle metadata and paint color management
-- [ ] Real BLE device pairing and connection
+- [x] Real BLE device pairing and connection
 - [ ] DBC file and profile download from cloud library
 - [ ] YAML/Lua script and widget runtime
 - [ ] Geo-fencing automations
@@ -214,7 +214,7 @@ The transport layer is intentionally minimal — it connects, sends raw CAN requ
 
 - [ ] ESD protection, automotive-grade transceivers, reverse polarity/fuse
 - [ ] FCC Part 15, IC, and CE/RED certification
-- [ ] Production enclosure design
+- [x] Production enclosure design
 
 ### Phase 2 — Pro Adapter & Fleet
 
