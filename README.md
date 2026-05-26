@@ -36,7 +36,7 @@ The system has three main layers:
   <img src="Assets/Hardware.png" alt="CAN Opener Hardware" width="500" />
 </div>
 
-The ESP32 based OBD2 adapter
+The base adapter is paired with an **MCP2515** CAN controller over SPI. It plugs directly into the OBD-II port and communicates with the Nexus app over BLE.
 
 **Hardware highlights:**
 
