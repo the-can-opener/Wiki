@@ -24,7 +24,7 @@ The system has three main layers:
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **Firmware**      | ESP32 adapter that sits on the OBD-II port. Handles BLE pairing, CAN 500 kbps bus I/O, OBD-II PID responses, BCM requests, ISO-TP multi-frame reads, and monitor streaming.          |
 | **can-opener-js** | TypeScript library that gives apps a virtual vehicle object. Abstracts DBC files, CAN IDs, byte layout, and signal packing behind named state like `ENGINE_RPM` and `VEHICLE_SPEED`. |
-| **Nexus**         | React Native / Expo mobile app. Polished dashboard with live signal state, body controls, mock vehicles, and dev tooling — all powered by can-opener-js.                             |
+| **Nexus**         | React Native / Expo mobile app. Polished dashboard with live signal state, body controls, mock vehicles, and dev tooling;  all powered by can-opener-js.                             |
 
 ---
 
