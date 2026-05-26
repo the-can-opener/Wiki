@@ -6,7 +6,7 @@
 
 **Turn any vehicle into a smart, connected system.**
 
-Open-source vehicle intelligence platform — ESP32-based BLE hardware, a TypeScript signal library, and a polished mobile app for exploring, automating, and extending your car.
+Open-source vehicle intelligence platform, ESP32-based BLE hardware, a TypeScript signal library, and a polished mobile app for exploring, automating, and extending your car.
 
 [Hardware](#hardware) · [can-opener-js](#can-opener-js) · [Nexus App](#nexus-app) · [BLE Interface](#ble-interface) · [Roadmap](#roadmap)
 
@@ -16,15 +16,16 @@ Open-source vehicle intelligence platform — ESP32-based BLE hardware, a TypeSc
 
 ## What Is CAN Opener?
 
-CAN Opener is an end-to-end open-source ecosystem for connected vehicle experiences. It bridges the physical CAN bus inside your car to a clean, developer-friendly software stack — without forcing you to speak raw hex.
+CAN Opener is an end-to-end open-source ecosystem for connected vehicle experiences. It bridges the physical CAN bus inside your car to a clean, developer-friendly software stack, without forcing you to speak raw hex.
 
 The system has three main layers:
 
 | Layer             | What It Does                                                                                                                                                                         |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Firmware**      | ESP32 adapter that sits on the OBD-II port. Handles BLE pairing, CAN 500 kbps bus I/O, OBD-II PID responses, BCM requests, ISO-TP multi-frame reads, and monitor streaming.          |
+| **Firmware**      | ESP32 adapter that sits on the OBD-II port. Handles BLE pairing, CAN bus I/O, OBD-II PID responses, BCM requests, ISO-TP multi-frame reads, and monitor streaming.          |
 | **can-opener-js** | TypeScript library that gives apps a virtual vehicle object. Abstracts DBC files, CAN IDs, byte layout, and signal packing behind named state like `ENGINE_RPM` and `VEHICLE_SPEED`. |
-| **Nexus**         | React Native / Expo mobile app. Polished dashboard with live signal state, body controls, mock vehicles, and dev tooling;  all powered by can-opener-js.                             |
+| **Nexus**         | React Native / Expo mobile app. Polished dashboard with live signal state, body controls, mock vehicles, and dev tooling,  all powered by can-opener-js.                             |
+| **Cloud Infrastructure**         | Share Vehicle Profiles (DBC Files and yaml), Upload and Explore custom widgets. View and Manage Analytics, Manage your cars from anywhere.                            |
 
 ---
 
@@ -55,40 +56,40 @@ The base adapter is paired with an **MCP2515** CAN controller over SPI. It plugs
 
 ## can-opener-js
 
-React-style vehicle state for TypeScript apps. `can-opener-js` wraps the entire vehicle — DBC files, CAN IDs, bit layout, scaling, byte order, and BLE transport details — behind a clean signal API.
+React-style vehicle state for TypeScript apps. `can-opener-js` wraps the entire vehicle, DBC files, CAN IDs, bit layout, scaling, byte order, and BLE transport details, behind a clean signal API.
 
 ```ts
-import { VirtualVehicleManager } from "can-opener-js";
-import { MockTransport } from "can-opener-js/transport";
+import { VirtualVehicleManager } from "can-opener-js",
+import { MockTransport } from "can-opener-js/transport",
 
-const vv = new VirtualVehicleManager();
+const vv = new VirtualVehicleManager(),
 const car = await vv.connect({
   id: "my-car",
   transport: new MockTransport(),
   profiles: [vehicleProfile],
-});
+}),
 
 // Subscribe to live signals
-await car.subscribe("ENGINE_RPM");
-await car.subscribe(["TURN_SIGNAL_LEFT", "HIGH_BEAMS"]);
+await car.subscribe("ENGINE_RPM"),
+await car.subscribe(["TURN_SIGNAL_LEFT", "HIGH_BEAMS"]),
 
 // Read state
-const speed = await car.query("VEHICLE_SPEED");
-const rpm = car.state.engine_rpm;
+const speed = await car.query("VEHICLE_SPEED"),
+const rpm = car.state.engine_rpm,
 
 // Send an action
-await car.action("HORN");
+await car.action("HORN"),
 ```
 
 **Core concepts:**
 
-- **Profiles** — YAML files that define endpoints, queries, actions, monitor subscriptions, and DBC mappings. The library ships no hardcoded PIDs; loaded YAML + DBC files are the source of truth.
-- **DBC** — decodes received CAN frames into named signals. Owns units, scaling, byte order, and enum tables.
-- **Signals** — passive broadcast values decoded from monitor frames and subscribed by name.
-- **Queries** — request/response PID or UDS reads (VIN, SPEED, RPM, etc.) via the BLE request characteristic.
-- **Actions** — multi-step command flows (LOCK, UNLOCK, HORN, LEFT_SIGNAL) with optional response verification.
-- **State** — each vehicle exposes a `valtio/vanilla`-backed `VehicleState` with snake_case property access and reactive subscriptions.
-- **Multi-vehicle** — `VirtualVehicleManager` is global-free. Each connected vehicle has isolated state, DBC registry, controllers, and transport.
+- **Profiles**: YAML files that define endpoints, queries, actions, monitor subscriptions, and DBC mappings. The library ships no hardcoded PIDs, loaded YAML + DBC files are the source of truth.
+- **DBC**: decodes received CAN frames into named signals. Owns units, scaling, byte order, and enum tables.
+- **Signals**: passive broadcast values decoded from monitor frames and subscribed by name.
+- **Queries**: request/response PID or UDS reads (VIN, SPEED, RPM, etc.) via the BLE request characteristic.
+- **Actions**: multi-step command flows (LOCK, UNLOCK, HORN, LEFT_SIGNAL) with optional response verification.
+- **State**: each vehicle exposes a `valtio/vanilla`-backed `VehicleState` with snake_case property access and reactive subscriptions.
+- **Multi-vehicle**: `VirtualVehicleManager` is global-free. Each connected vehicle has isolated state, DBC registry, controllers, and transport.
 
 **Standard capability keywords:**
 
@@ -116,7 +117,7 @@ npm install can-opener-js
 - Manage paired vehicles with nicknames, paint colors, and attached DBC/profile metadata
 - Dev controls: locks, doors, brake lights, low/high beams, turn signals, body state
 - Mock vehicle support for local development without hardware
-- UI components stay isolated from transport and CAN details — all state lives in can-opener-js
+- UI components stay isolated from transport and CAN details , all state lives in can-opener-js
 
 **Tech stack:** Expo · Expo Router · React Native · React 19 · TypeScript · react-native-svg · Expo haptics/blur/gradients
 
@@ -144,7 +145,7 @@ npx expo run:ios --device
 
 The firmware exposes three BLE characteristics: a **Request** characteristic for the phone to send commands and receive CAN responses, a **Monitor Control** characteristic to configure which CAN IDs the firmware watches, and a **Monitor Data** characteristic that streams the latest frame snapshot for every monitored ID as they arrive.
 
-The transport layer is intentionally minimal — it connects, sends raw CAN requests, manages the monitor list, and receives frame snapshots. It has no knowledge of DBC files, signal names, or application logic. That contract is stable and version-independent, which keeps firmware and app upgrades decoupled.
+The transport layer is intentionally minimal, it connects, sends raw CAN requests, manages the monitor list, and receives frame snapshots. It has no knowledge of DBC files, signal names, or application logic. That contract is stable and version-independent, which keeps firmware and app upgrades decoupled.
 
 ---
 
@@ -154,7 +155,7 @@ The transport layer is intentionally minimal — it connects, sends raw CAN requ
   <img src="Assets/can_opener_github_roadmap.png" alt="CAN Opener Roadmap" width="100%" />
 </div>
 
-### Phase 1 — Base Platform
+### Phase 1 , Base Platform
 
 **Firmware**
 
@@ -196,7 +197,7 @@ The transport layer is intentionally minimal — it connects, sends raw CAN requ
 - [ ] DBC file and profile download from cloud library
 - [ ] YAML/Lua script and widget runtime
 - [ ] Geo-fencing automations
-- [ ] Diagnostics — read and clear DTCs, AI-assisted fault code interpretation
+- [ ] Diagnostics, read and clear DTCs, AI-assisted fault code interpretation
 
 **Cloud & Ecosystem**
 
@@ -211,16 +212,16 @@ The transport layer is intentionally minimal — it connects, sends raw CAN requ
 - [ ] FCC Part 15, IC, and CE/RED certification
 - [x] Production enclosure design
 
-### Phase 2 — Pro Adapter & Fleet
+### Phase 2 , Pro Adapter & Fleet
 
 - [ ] Pro Adapter: more powerful SoC, GPS, cellular, onboard battery, solar charging
 - [ ] Local web server and full API access on Pro Adapter
 - [ ] Modular expansion: cameras, sensors, radar, GPIO modules
-- [ ] Project Prometheus — cloud fleet management (real-time tracking, remote ops, enterprise API)
+- [ ] Project Prometheus; cloud fleet management (real-time tracking, remote ops, enterprise API)
 
 ### Optional
 
-- [ ] Project Renigne — reverse engineering tool (CAN frequency analysis, signal detection, AI correlation, DBC generation)
+- [ ] Project Renigne; reverse engineering tool (CAN frequency analysis, signal detection, AI correlation, DBC generation)
 
 ## Long-Term Vision
 
