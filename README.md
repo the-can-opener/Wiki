@@ -34,18 +34,15 @@ The system has three main layers:
   <img src="Assets/Hardware.png" alt="CAN Opener Hardware" width="500" />
 </div>
 
-The base adapter is built around the **ESP32** (ESP32-CAM or compatible) paired with an **MCP2515** CAN controller over SPI. It plugs directly into the OBD-II port and communicates with the Nexus app over BLE.
+The base adapter is paired with an **MCP2515** CAN controller over SPI. It plugs directly into the OBD-II port and communicates with the Nexus app over BLE.
 
 **Hardware highlights:**
 
-- HS-CAN via pins 14 and 6
-- ESP32 based
 - FreeRTOS task orchestration: CAN handling, BLE, logging, safety watchdogs
 - ISO-TP multi-frame VIN reads with flow-control handshake
 - CAN frame monitor streaming for passive signal subscriptions
 - Loopback diagnostic mode for hardware validation
-- Replay task for light/body signal simulation during development
-- SLCAN Streaming through USB Serial
+- Replay task for signal simulation for hardware in the loop testing
 
 **Planned hardware features:**
 
@@ -170,6 +167,7 @@ The transport layer is intentionally minimal — it connects, sends raw CAN requ
 - [x] Mutex-guarded concurrent CAN bus access
 - [x] Loopback diagnostic mode
 - [x] BLE bonding + encryption on hardware
+- [ ] SLCAN Streaming through USB Serial
 - [ ] Signed OTA firmware updates
 - [ ] Safe-mode bootloader recovery
 - [ ] Rate limiting and watchdog timers
