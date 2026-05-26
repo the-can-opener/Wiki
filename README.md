@@ -186,18 +186,15 @@ The transport layer is intentionally minimal — it connects, sends raw CAN requ
 - [x] Multi-step action flows with response verification
 - [x] VAL\_ enum-state subscriptions
 - [x] valtio/vanilla vehicle state with reactive subscriptions
-- [x] MockTransport for local testing
-- [x] Real BLE transport (Web Bluetooth / Node BLE)
-- [ ] React bindings entry point
-- [x] ISO-TP assembly/disassembly (currently firmware-side)
+- [x] BLE transport (Web Bluetooth / Node BLE)
+- [x] React bindings entry point
 
 **Nexus App**
 
 - [x] Vehicle dashboard (speed, fuel/battery, lock, trunk, lighting)
-- [x] Mock vehicle support for local development
 - [x] Body controls dev panel (locks, doors, lights, signals)
 - [x] Vehicle metadata and paint color management
-- [x] Real BLE device pairing and connection
+- [x] BLE device pairing and connection
 - [ ] DBC file and profile download from cloud library
 - [ ] YAML/Lua script and widget runtime
 - [ ] Geo-fencing automations
