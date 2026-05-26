@@ -8,8 +8,8 @@
 
 Open-source vehicle intelligence platform, ESP32-based BLE hardware, a TypeScript signal library, and a polished mobile app for exploring, automating, and extending your car.
 
-[Hardware](#hardware) · [can-opener-js](#can-opener-js) · [Nexus App](#nexus-app) · [BLE Interface](#ble-interface) · [Roadmap](#roadmap) · 
- [Discord](#discord)
+[Hardware](#hardware) · [can-opener-js](#can-opener-js) · [Nexus App](#nexus-app) · [BLE Interface](#ble-interface) · [Roadmap](#roadmap) ·
+[Discord](#discord)
 
 </div>
 
@@ -21,12 +21,12 @@ CAN Opener is an end-to-end open-source ecosystem for connected vehicle experien
 
 The system has three main layers:
 
-| Layer             | What It Does                                                                                                                                                                         |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Firmware**      | ESP32 adapter that sits on the OBD-II port. Handles BLE pairing, CAN bus I/O, OBD-II PID responses, BCM requests, ISO-TP multi-frame reads, and monitor streaming.          |
-| **can-opener-js** | TypeScript library that gives apps a virtual vehicle object. Abstracts DBC files, CAN IDs, byte layout, and signal packing behind named state like `ENGINE_RPM` and `VEHICLE_SPEED`. |
-| **Nexus**         | React Native / Expo mobile app. Polished dashboard with live signal state, body controls, mock vehicles, and dev tooling,  all powered by can-opener-js.                             |
-| **Cloud Infrastructure**         | Share Vehicle Profiles (DBC Files and yaml), Upload and Explore custom widgets. View and Manage Analytics, Manage your cars from anywhere.                            |
+| Layer                    | What It Does                                                                                                                                                                         |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Firmware**             | ESP32 adapter that sits on the OBD-II port. Handles BLE pairing, CAN bus I/O, OBD-II PID responses, BCM requests, ISO-TP multi-frame reads, and monitor streaming.                   |
+| **can-opener-js**        | TypeScript library that gives apps a virtual vehicle object. Abstracts DBC files, CAN IDs, byte layout, and signal packing behind named state like `ENGINE_RPM` and `VEHICLE_SPEED`. |
+| **Nexus**                | React Native / Expo mobile app. Polished dashboard with live signal state, body controls, mock vehicles, and dev tooling, all powered by can-opener-js.                              |
+| **Cloud Infrastructure** | Share Vehicle Profiles (DBC Files and yaml), Upload and Explore custom widgets. View and Manage Analytics, Manage your cars from anywhere.                                           |
 
 ---
 
@@ -115,10 +115,14 @@ npm install can-opener-js
 **CAN Opener Nexus** is the user-facing mobile app built with Expo and React Native. It sits on top of `can-opener-js` and turns raw vehicle state into a polished control surface.
 
 - Vehicle-first dashboard: speed, battery/fuel, lock state, trunk state, and animated lighting
-- Manage paired vehicles with nicknames, paint colors, and attached DBC/profile metadata
-- Dev controls: locks, doors, brake lights, low/high beams, turn signals, body state
-- Mock vehicle support for local development without hardware
+- Automatically detects the vehicle make and model after connecting to the obd port
+- Manage multiple vehicles identified by their nicknames, paint colors, and attached DBC/profile metadata
 - UI components stay isolated from transport and CAN details , all state lives in can-opener-js
+
+**Planned App features:**
+
+- download Vehicle Profile (DBC + YAML) from the cloud, interprets and maps commands to the specific vehicle
+- App store, to browse, manage, and download widgets and scripts which power custom UI and workflows
 
 **Tech stack:** Expo · Expo Router · React Native · React 19 · TypeScript · react-native-svg · Expo haptics/blur/gradients
 
@@ -229,4 +233,5 @@ The transport layer is intentionally minimal, it connects, sends raw CAN request
 Create an open automotive software ecosystem where any vehicle can become programmable, developers can build and share apps safely, consumers retain ownership and control of their data, fleet operators gain powerful automation tools, and vehicle intelligence becomes hardware-agnostic.
 
 ## Discord
+
 Feel free to join our community discord server: https://discord.gg/5SzuSSYqmg
