@@ -38,22 +38,21 @@ The base adapter is built around the **ESP32** (ESP32-CAM or compatible) paired 
 
 **Hardware highlights:**
 
-- 500 kbps CAN bus, MCP2515 at 8 MHz oscillator
-- SPI bus: MISO 26, MOSI 13, CLK 14, CS 27
+- HS-CAN via pins 14 and 6
+- ESP32 based
 - FreeRTOS task orchestration: CAN handling, BLE, logging, safety watchdogs
-- Mutex-guarded CAN bus access — safe for concurrent request and replay tasks
-- Handles OBD-II (0x7DF → 0x7E8) and BCM (0x745 → 0x765) endpoints
 - ISO-TP multi-frame VIN reads with flow-control handshake
 - CAN frame monitor streaming for passive signal subscriptions
 - Loopback diagnostic mode for hardware validation
 - Replay task for light/body signal simulation during development
+- SLCAN Streaming through USB Serial
 
 **Planned hardware features:**
 
+- Dual CAN support: one fixed to OBD pins 6/14, plus one independently configurable CAN and LIN interface routable to other OBD pins.
 - ESD protection and automotive-grade CAN transceivers
 - Reverse polarity and fuse protection
 - FCC Part 15, IC, and CE/RED certification path
-- Pre-certified wireless modules (ESP32-C6 Mini) for early launches
 
 ---
 
