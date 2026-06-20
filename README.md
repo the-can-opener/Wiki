@@ -20,10 +20,7 @@ Open-source vehicle intelligence platform, ESP32-based BLE hardware, a TypeScrip
 CAN Opener is an end-to-end open-source ecosystem for connected vehicle experiences. It bridges the physical CAN bus inside your car to a clean, developer-friendly software stack, without forcing you to speak raw hex. Feel free to check out our official CAN-Opener [Wiki](https://github.com/the-can-opener/Wiki/wiki) page.
 
 <div align="center">
-  <video controls width="640">
-    <source src="https://packaged-media.redd.it/92cghpphxs2h1/pb/m2-res_480p.mp4?m=DASHPlaylist.mpd&amp;var=sgpssan&amp;v=1&amp;e=1782014400&amp;s=cf967bcf08d299b956f9e90c65c5c7edaf225426" type="video/mp4" />
-    <a href="https://packaged-media.redd.it/92cghpphxs2h1/pb/m2-res_480p.mp4?m=DASHPlaylist.mpd&amp;var=sgpssan&amp;v=1&amp;e=1782014400&amp;s=cf967bcf08d299b956f9e90c65c5c7edaf225426">Watch the CAN Opener demo video</a>
-  </video>
+  <img src="Assets/can-opener-demo.gif" alt="CAN Opener demo" width="640" />
 </div>
 
 The system has four main layers:
