@@ -8,9 +8,12 @@
 
 Open-source vehicle intelligence platform, ESP32-based BLE hardware, a TypeScript signal library, and a polished mobile app for exploring, automating, and extending your car.
 
-[Hardware](#hardware) · [can-opener-js](#can-opener-js) · [Nexus App](#nexus-app) · [BLE Interface](#ble-interface) · [Roadmap](#roadmap) ·
-[Discord](#discord)
-
+[Hardware](#hardware) · [can-opener-js](#can-opener-js) · [Nexus App](#nexus-app) · [BLE Interface](#ble-interface) · [Roadmap](#roadmap)
+<div align="center">
+  <a href="https://discord.gg/5SzuSSYqmg">
+    <img src="https://img.shields.io/badge/Join%20the%20Discord-CAN%20Opener-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Join the CAN Opener Discord" />
+  </a>
+</div>
 </div>
 
 ---
@@ -235,7 +238,3 @@ The transport layer is intentionally minimal, it connects, sends raw CAN request
 ## Long-Term Vision
 
 Create an open automotive software ecosystem where any vehicle can become programmable, developers can build and share apps safely, consumers retain ownership and control of their data, fleet operators gain powerful automation tools, and vehicle intelligence becomes hardware-agnostic.
-
-## Discord
-
-Feel free to join our community discord server: https://discord.gg/5SzuSSYqmg
