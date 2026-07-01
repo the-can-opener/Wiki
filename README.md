@@ -206,16 +206,16 @@ The transport layer is intentionally minimal, it connects, sends raw CAN request
 - [x] Body controls dev panel (locks, doors, lights, signals)
 - [x] Vehicle metadata and paint color management
 - [x] BLE device pairing and connection
-- [ ] DBC file and profile download from cloud library
+- [x] DBC file and profile download from cloud library
 - [ ] YAML/Lua script and widget runtime
 - [ ] Geo-fencing automations
 - [ ] Diagnostics, read and clear DTCs, AI-assisted fault code interpretation
 
 **Cloud & Ecosystem**
 
-- [ ] DBC file and widget repository (community submissions, safety validation)
+- [x] DBC file and widget repository (community submissions, safety validation)
 - [ ] OAuth2 / device ownership and developer accounts
-- [ ] can-opener-py Python debugging toolkit (SocketCAN, BLE debug, replay)
+- [x] can-opener-py Python debugging toolkit (SocketCAN, BLE debug, replay)
 - [ ] Kickstarter launch
 
 **Hardware & Compliance**
