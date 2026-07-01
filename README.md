@@ -41,6 +41,8 @@ The system has four main layers:
 
 <div align="center">
   <img src="Assets/Hardware.png" alt="CAN Opener Hardware" width="500" />
+  <br />
+  <img src="Assets/PCB.png" alt="CAN Opener PCB" width="640" />
 </div>
 
 The base adapter is paired with an **MCP2515** CAN controller over SPI. It plugs directly into the OBD-II port and communicates with the Nexus app over BLE.
