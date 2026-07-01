@@ -9,6 +9,7 @@
 Open-source vehicle intelligence platform, ESP32-based BLE hardware, a TypeScript signal library, and a polished mobile app for exploring, automating, and extending your car.
 
 [Hardware](#hardware) · [can-opener-js](#can-opener-js) · [Nexus App](#nexus-app) · [BLE Interface](#ble-interface) · [Roadmap](#roadmap)
+
 <div align="center">
   <a href="https://discord.gg/5SzuSSYqmg">
     <img src="https://img.shields.io/badge/Join%20the%20Discord-CAN%20Opener-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Join the CAN Opener Discord" />
@@ -42,24 +43,32 @@ The system has four main layers:
 <div align="center">
   <img src="Assets/Hardware.png" alt="CAN Opener Hardware" width="500" />
   <br />
+  <em>Prototype adapter</em>
+  <br />
   <img src="Assets/PCB.png" alt="CAN Opener PCB" width="640" />
+  <br />
+  <em>PCB Prototype</em>
 </div>
 
-The base adapter is paired with an **MCP2515** CAN controller over SPI. It plugs directly into the OBD-II port and communicates with the Nexus app over BLE.
+The standard prototype adapter is paired with an **MCP2515** CAN controller over SPI. It plugs directly into the OBD-II port and communicates with the Nexus app over BLE.
+
+The PCB prototype uses an **ESP32-C5** paired with **two CAN FD controllers** and **two CAN transceivers**, giving the adapter two independent CAN FD channels. It also includes ESD protection and an onboard buck converter that steps vehicle 12 V down to 3.3 V for the ESP32-C5 and CAN transceivers.
 
 **Hardware highlights:**
 
+- ESP32-C5 production PCB with dual CAN FD controllers and dual CAN transceivers
+- Onboard 12 V to 3.3 V buck converter for the ESP32-C5 and transceivers
+- ESD protection for automotive electrical environments
+- Reverse polarity and fuse protection
 - FreeRTOS task orchestration: CAN handling, BLE, logging, safety watchdogs
 - ISO-TP multi-frame VIN reads with flow-control handshake
 - CAN frame monitor streaming for passive signal subscriptions
-- Loopback diagnostic mode for hardware validation
-- Replay task for signal simulation for hardware in the loop testing
+- Asynchronous request communication
 
 **Planned hardware features:**
 
-- Dual CAN support: one fixed to OBD pins 6/14, plus one independently configurable CAN and LIN interface routable to other OBD pins.
-- ESD protection and automotive-grade CAN transceivers
-- Reverse polarity and fuse protection
+- Configurable CAN and LIN routing to additional OBD pins
+- Automotive-grade CAN transceivers
 - FCC Part 15, IC, and CE/RED certification path
 
 ---
