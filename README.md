@@ -191,7 +191,7 @@ The transport layer is intentionally minimal, it connects, sends raw CAN request
 - [x] Mutex-guarded concurrent CAN bus access
 - [x] Loopback diagnostic mode
 - [x] BLE bonding + encryption on hardware
-- [ ] SLCAN Streaming through USB Serial
+- [x] SLCAN Streaming through USB Serial
 - [ ] Signed OTA firmware updates
 - [ ] Safe-mode bootloader recovery
 - [ ] Rate limiting and watchdog timers
@@ -231,7 +231,7 @@ The transport layer is intentionally minimal, it connects, sends raw CAN request
 
 **Hardware & Compliance**
 
-- [ ] ESD protection, automotive-grade transceivers, reverse polarity/fuse
+- [x] ESD protection, automotive-grade transceivers, reverse polarity/fuse
 - [ ] FCC Part 15, IC, and CE/RED certification
 - [x] Production enclosure design
 
